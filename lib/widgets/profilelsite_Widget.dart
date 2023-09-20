@@ -11,7 +11,7 @@ class ProfileListWidget extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return Card(
-            color: Colors.amber,
+            color: Colors.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -19,9 +19,11 @@ class ProfileListWidget extends StatelessWidget {
                   height: 150,
                   width: 150,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.grey,
-                  ),
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.grey,
+                      image: const DecorationImage(
+                          image: AssetImage("assets/images/profile.jpg"),
+                          fit: BoxFit.cover)),
                 ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -40,7 +42,6 @@ class ProfileListWidget extends StatelessWidget {
                     SizedBox(
                       width: 20,
                     ),
-                    Spacer(),
                     Icon(
                       Icons.star,
                       color: Colors.amberAccent,
