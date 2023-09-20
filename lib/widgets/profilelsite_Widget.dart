@@ -6,6 +6,12 @@ class ProfileListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List ImgProfile = [
+      "assets/images/profile1.jpg",
+      "assets/images/profile2.jpg",
+      "assets/images/profile1.jpg",
+      "assets/images/profile2.jpg",
+    ];
     return ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
@@ -21,8 +27,8 @@ class ProfileListWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.grey,
-                      image: const DecorationImage(
-                          image: AssetImage("assets/images/profile.jpg"),
+                      image: DecorationImage(
+                          image: AssetImage(ImgProfile[index]),
                           fit: BoxFit.cover)),
                 ),
                 const Row(
@@ -67,8 +73,8 @@ class ProfileListWidget extends StatelessWidget {
           );
         },
         separatorBuilder: (context, index) {
-          return const Padding(padding: EdgeInsets.only(right: 10));
+          return const Padding(padding: EdgeInsets.only(right: 8));
         },
-        itemCount: 5);
+        itemCount: ImgProfile.length);
   }
 }

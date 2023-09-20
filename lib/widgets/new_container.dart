@@ -1,7 +1,22 @@
+import 'package:dream_job/widgets/userpost_widget.dart';
 import 'package:flutter/material.dart';
 
-class NewContainer extends StatelessWidget {
-  const NewContainer({super.key});
+class NewsContainer extends StatelessWidget {
+  final String imagePath;
+  final String name;
+  final String personTitre;
+  final String postDate;
+  final String postText;
+  final String postUrlImage;
+
+  const NewsContainer(
+      {required this.imagePath,
+      required this.name,
+      required this.personTitre,
+      required this.postDate,
+      required this.postText,
+      required this.postUrlImage,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,54 +24,17 @@ class NewContainer extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width,
       child: Column(
         children: [
-          Row(
-            children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                        image: AssetImage("assets/images/profile.jpg"),
-                        fit: BoxFit.cover)),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Katherine",
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "HR manager at RenCity",
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              const Spacer(),
-              const Text(
-                "at 4:05 PM",
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
+          UserPost_Widget(
+            imagePath: imagePath,
+            name: name,
+            personTitre: personTitre,
+            postDate: postDate,
           ),
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            "découvrez la manière la plus simple de configurer votre mikrotik, sans faute et éviter d'être pirater dans cette vidéo.",
+          Text(
+            postText,
             style: TextStyle(
                 fontSize: 17,
                 color: Colors.black87,
@@ -70,8 +48,8 @@ class NewContainer extends StatelessWidget {
             height: 300,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                image: const DecorationImage(
-                    image: AssetImage("assets/images/post.png"),
+                image:  DecorationImage(
+                    image: AssetImage(postUrlImage),
                     fit: BoxFit.cover)),
           )
         ],
